@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -6,22 +7,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('en');
+  }
+
+
   title = 'app';
-  valll:String;
 
      lang:Number;
 
     isAr = null;
 
-  chaneLang(evt){
-this.lang = evt;
-console.log(this.lang)
-if(this.lang == 1){
-  this.valll = "اهلا";
-  this.isAr = true;
-}else{
-  this.valll = "welcome";
-  this.isAr = false;
-}
-  }
+    switchLanguage(language: string) {
+
+      if(language == 'ar'){
+        this.isAr = true;
+      }else{
+        this.isAr = false;
+      }
+      this.translate.use(language);
+    }
+
 }

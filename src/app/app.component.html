@@ -12,17 +12,17 @@
 </head>
 <body>
 <div>
-    <select (change)="chaneLang($event.target.value)">
+    <select (change)="switchLanguage($event.target.value)">
         <option value="0">--All--</option>
-        <option  value="1">
+        <option  value="ar">
             ar
         </option>
-        <option  value="2">
+        <option  value="en">
             en
         </option>
     </select>
 
-    <h1 class="wt">{{valll}}</h1>
+    <h1 class="wt" > {{ 'Intro' | translate }}</h1>
 </div>
   </body>
   </html>
